@@ -4,3 +4,27 @@
   padding: 2rem;
   text-align: center;
 }
+
+html, body {
+  height: 100%;  /* Asegura que la altura de la página sea del 100% */
+  margin: 0;     /* Elimina los márgenes por defecto */
+  background-color: beige;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100vh asegura que la altura sea al menos el 100% de la ventana */
+}
+
+main {
+  flex-grow: 1;  /* Esto asegura que el contenido ocupe el espacio restante */
+}
+
+
+.footer {
+  background-color: #f1f1f1; /* Solo un ejemplo de color */
+  padding: 10px;
+  text-align: center;
+  margin-top: auto; /* Esto empuja el footer hacia abajo */
+}
