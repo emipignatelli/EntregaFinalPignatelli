@@ -6,25 +6,34 @@
 }
 
 html, body {
-  height: 100%;  /* Asegura que la altura de la página sea del 100% */
-  margin: 0;     /* Elimina los márgenes por defecto */
-  background-color: beige;
+  height: 100%;  
+  margin: 0;     
+  background-color: white;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 100vh asegura que la altura sea al menos el 100% de la ventana */
+  min-height: 100vh; 
 }
 
 main {
-  flex-grow: 1;  /* Esto asegura que el contenido ocupe el espacio restante */
+  flex-grow: 1;  
 }
 
 
 .footer {
-  background-color: #f1f1f1; /* Solo un ejemplo de color */
+  background-color: #f1f1f1; 
   padding: 10px;
   text-align: center;
-  margin-top: auto; /* Esto empuja el footer hacia abajo */
+  margin-top: auto; 
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+}
+
+.navbar-list {
+  text-decoration: none;
 }

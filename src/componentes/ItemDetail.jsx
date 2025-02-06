@@ -1,33 +1,20 @@
+import { useState } from "react";
 import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom"; 
 
+function ItemDetail({ id, title, price, img, stock, addToCart }) {
+  const handleAddToCart = (count) => {
+    addToCart({ id, title, price, img, count, stock });
+  };
 
-function ItemDetail({ price, title, text, img, stock}) {
-    
-
-    function onSubmitCount(count) {
-        
-
-    }
   return (
-    <div className="card" style={{background: "grey", borderRadius: "50px", borderColor: "black" }}>
-        <img src={img} style={{height: '400px', width: '400px'}} alt="Aquí va a ir el título del producto" />
-        <div className="card-body">
-            <h3 className="card-title">{title}</h3>
-            <p className="card-text" style={{fontSize: "20px"}}>{text}</p>
-            <div style={{border: "block", color: "black"}}>
-                <p className="card-price">$ {price}</p>
-            </div>
-            
-            <div>
-                <ItemCount onSubmitCount={onSubmitCount} max={stock} />
-            </div>
-            
-            
-        </div>
-
+    <div>
+      <h3>{title}</h3>
+      <img src={img} alt={title} />
+      <p>Precio: ${price}</p>
+      <p>Stock: {stock} unidades</p>
+      <ItemCount max={stock} onSubmitCount={handleAddToCart} />
     </div>
-  )
+  );
 }
 
 export default ItemDetail;

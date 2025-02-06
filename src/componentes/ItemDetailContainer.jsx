@@ -1,34 +1,37 @@
-import { useState, useEffect } from "react";
-import { getAsyncItemById } from "../data/getAsyncData";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import Loader from "./Loader";
 import ItemDetail from "./ItemDetail";
+import { getAsyncItemById } from "../data/getAsyncData";
+import cartContext from "../context/cartContext";
 
-
- 
 function ItemDetailContainer() {
+  const { id } = useParams();
+  const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { addItem } = useContext(cartContext);
 
-    const [product, setProduct] = useState();
+  useEffect(() => {
+    getAsyncItemById(id)
+      .then((product) => {
+        setItem(product);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error al cargar el producto:", error);
+        setLoading(false);
+      });
+  }, [id]);
 
-    const { id } = useParams();
+  if (loading) {
+    return <Loader />;
+  }
 
-    useEffect(() => {
-        if (id) {
-        async function getProduct() {
-            const data = await getAsyncItemById(id);
-            setProduct(data);
-        }
-        getProduct();
-    }
-    }, [id]);
-
-    if (!product) { 
-        return <div>Cargando producto...</div>;
-    
-    }
-
-  return <ItemDetail {...product} />;
-    
-  
+  return (
+    <div>
+      {item && <ItemDetail {...item} addToCart={addItem} />}
+    </div>
+  );
 }
 
 export default ItemDetailContainer;

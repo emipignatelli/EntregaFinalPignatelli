@@ -1,38 +1,37 @@
 import { useState } from "react";
 
-
-
 function ItemCount(props) {
+  let [count, setCount] = useState(1);
 
-    let [count, setCount] = useState(1);
-
-    const handleAdd = () => {
-        if (count === props.max) return;
-        
-        setCount(count + 1);
-    };
-    const handleSubstract = () => {
-        
-        
-        setCount(count - 1);
-    };
-
-    function handleClick() {
-        props.onSubmitCount(count);
+  const handleAdd = () => {
+    if (count < props.max) {
+      setCount(count + 1);
     }
+  };
 
-  return  (
+  const handleSubstract = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
+  function handleClick() {
+    props.onSubmitCount(count);
+  }
+
+  return (
     <div>
       <div>
-        <button onClick={handleAdd}>+</button>
+        <button onClick={handleAdd} disabled={count >= props.max}>+</button>
         <span>{count}</span>
-        <button onClick={handleSubstract}>-</button>
+        <button onClick={handleSubstract} disabled={count <= 1}>-</button>
       </div>
       <div>
-        <button onClick={handleClick}>Agregar al carrito</button>
+        <button onClick={handleClick} disabled={props.max === 0}>Agregar al carrito</button>
+        {props.max === 0 && <p>Stock no disponible</p>} 
       </div>
     </div>
   );
 }
 
-export default ItemCount
+export default ItemCount;

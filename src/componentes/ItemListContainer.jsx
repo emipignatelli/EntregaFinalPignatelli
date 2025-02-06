@@ -1,34 +1,23 @@
-import getAsyncData, { getAsyncItemsByCategory } from "../data/getAsyncData";
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-
-
+import ItemList from "./ItemList";
+import { getAsyncData, getAsyncItemsByCategory } from "../data/getAsyncData";
 
 function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
-  
   const { category } = useParams();
-  
-
 
   useEffect(() => {
     if (!category) {
-      const respuestaPromise = getAsyncData();
-      
-      respuestaPromise
+      getAsyncData()
         .then((respuesta) => {
-          setProducts(respuesta);  
-          
+          setProducts(respuesta);
         })
         .catch((error) => alert(error));
     } else {
-      const respuestaPromise = getAsyncItemsByCategory(category);
-      console.log(respuestaPromise);  
-      respuestaPromise
+      getAsyncItemsByCategory(category)
         .then((respuesta) => {
-          setProducts(respuesta);  
-          
+          setProducts(respuesta);
         })
         .catch((error) => alert(error));
     }
