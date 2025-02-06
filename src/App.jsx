@@ -1,6 +1,6 @@
 
 import './App.css';
-import Cartwidget from './componentes/CartWidget';
+import CartWidget from './componentes/CartWidget';
 import Img from './componentes/Img';
 import Navbar from './componentes/Navbar';
 import './componentes/HeaderContenedor.css';
@@ -45,7 +45,7 @@ function App() {
             </Navbar>
           </div>
           <div>
-            <Cartwidget />
+            <CartWidget />
           </div>
         </div>
 
