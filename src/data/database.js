@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, writeBatch, doc, setDoc, query, getDocs } from "firebase/firestore";
 import products from './data'; 
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyDzp0rF4jOOTAX5XtZSbe3U_WyEHhTmVTQ",
   authDomain: "miprimeraappreact-6bca1.firebaseapp.com",
@@ -12,7 +11,6 @@ const firebaseConfig = {
   appId: "1:184853262999:web:bcf8088119d073d7356fd2",
   measurementId: "G-BWBCDYRVXF"
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -24,20 +22,16 @@ export async function loadProductsOnce() {
   try {
     console.log("Iniciando la carga de productos...");
 
-    
     const q = query(productsCollection);
     const querySnapshot = await getDocs(q);
     
-    
     if (querySnapshot.empty) {
-      
       products.forEach((item) => {
         const newDocRef = doc(collection(db, "products"));
-        batch.set(newDocRef, item); 
-        console.log(`Agregando producto con ID ${item.id}`); 
+        batch.set(newDocRef, item);
+        console.log(`Agregando producto con ID ${item.id}`);
       });
 
-      
       await batch.commit();
       console.log("Productos cargados correctamente en Firestore");
     } else {
@@ -48,15 +42,26 @@ export async function loadProductsOnce() {
   }
 }
 
-export async function savePurchaseData(formData) {
+export async function savePurchaseData(formData, cartItems) {
   try {
     const purchasesCollection = collection(db, "compras");  
     const newDocRef = doc(purchasesCollection); 
-    console.log("Intentando guardar los datos:", formData); 
+    console.log("Intentando guardar los datos:", formData);
 
-    await setDoc(newDocRef, formData); 
+    
+    const purchaseData = {
+      ...formData,
+      cart: cartItems,  
+      totalPrice: cartItems.reduce((total, item) => total + item.price * item.count, 0), 
+    };
 
+    await setDoc(newDocRef, purchaseData);  
+    
     console.log("Datos de la compra guardados correctamente en Firebase");
+
+   
+    console.log("ID generado por Firebase:", newDocRef.id); 
+    return newDocRef.id;  
   } catch (error) {
     console.error("Error al guardar los datos de la compra:", error);
   }

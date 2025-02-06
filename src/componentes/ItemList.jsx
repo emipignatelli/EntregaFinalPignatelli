@@ -15,7 +15,8 @@ function ItemList(props) {
             price={item.price}
             text={item.category}
             img={item.img}
-          />
+            discount={item.discount}
+            />
         ))}
       </FlexContainer>
     </div>

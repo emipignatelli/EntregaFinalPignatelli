@@ -21,7 +21,9 @@ const products = [
     price: 25000,
     stock: 20,
     img: Img1,
-    category: 'Hombre'
+    category: 'Hombre',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 15
   },
   {
     id: 2,
@@ -29,7 +31,9 @@ const products = [
     price: 25000,
     stock: 50,
     img: Img2,
-    category: 'Hombre'
+    category: 'Hombre',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 25
   },
   {
     id: 3,
@@ -37,7 +41,9 @@ const products = [
     price: 28000,
     stock: 30,
     img: Img3,
-    category: 'Hombre'
+    category: 'Hombre',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 5
   },
   {
     id: 4,
@@ -45,7 +51,10 @@ const products = [
     price: 25000,
     stock: 15,
     img: Img4,
-    category: 'Hombre'
+    category: 'Hombre',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 10,
+
   },
   {
     id: 5,
@@ -53,7 +62,9 @@ const products = [
     price: 28000,
     stock: 100,
     img: Img5,
-    category: 'Hombre'
+    category: 'Hombre',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 30
   },
   {
     id: 6,
@@ -61,7 +72,9 @@ const products = [
     price: 23000,
     stock: 25,
     img: Img6,
-    category: 'Mujer'
+    category: 'Mujer',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 10
   },
   {
     id: 7,
@@ -69,7 +82,9 @@ const products = [
     price: 24000,
     stock: 40,
     img: Img7,
-    category: 'Mujer'
+    category: 'Mujer',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 5
   },
   {
     id: 8,
@@ -77,7 +92,9 @@ const products = [
     price: 22000,
     stock: 60,
     img: Img8,
-    category: 'Mujer'
+    category: 'Mujer',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 20
   },
   {
     id: 9,
@@ -85,7 +102,9 @@ const products = [
     price: 22000,
     stock: 20,
     img: Img9,
-    category: 'Mujer'
+    category: 'Mujer',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 10
   },
   {
     id: 10,
@@ -93,7 +112,9 @@ const products = [
     price: 25000,
     stock: 15,
     img: Img10,
-    category: 'Mujer'
+    category: 'Mujer',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 30
   },
   {
     id: 11,
@@ -101,7 +122,9 @@ const products = [
     price: 20000,
     stock: 30,
     img: Img11,
-    category: 'Chicos'
+    category: 'Chicos',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 5
   },
   {
     id: 12,
@@ -109,7 +132,9 @@ const products = [
     price: 21000,
     stock: 20,
     img: Img12,
-    category: 'Chicos'
+    category: 'Chicos',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 15
   },
   {
     id: 13,
@@ -117,7 +142,9 @@ const products = [
     price: 23000,
     stock: 10,
     img: Img13,
-    category: 'Chicos'
+    category: 'Chicos',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 15
   },
   {
     id: 14,
@@ -125,7 +152,9 @@ const products = [
     price: 22000,
     stock: 40,
     img: Img14,
-    category: 'Chicos'
+    category: 'Chicos',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 5
   },
   {
     id: 15,
@@ -133,7 +162,9 @@ const products = [
     price: 22000,
     stock: 100,
     img: Img15,
-    category: 'Chicos'
+    category: 'Chicos',
+    description: 'Excelentes zapatillas en calidad y buen precio',
+    discount: 25
   }
 ];
 

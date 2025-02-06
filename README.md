@@ -1,8 +1,16 @@
-# React + Vite
+Nombre del Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Emi Indumentaria
 
-Currently, two official plugins are available:
+Con el afán de querer progresar en la venta de calzados, este e commerce llegó para poder brindarte la mejor atención en relación al costo-calidad que deseas obtener. 
+Amplia variedad en hombres, mujeres y chicos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tabla de contenidos
+
+Instalación: 
+
+Podes seguir los siguientes pasos para instalar el repositorio en tu pc:
+
+1- Clona el repositorio en tu pc: 
+
+git clone 

@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { savePurchaseData } from "../data/database.js";
-<data value=""></data>;  // Asegúrate de que la ruta esté correcta
-
+import cartContext from "../context/cartContext"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function FormCompra({ onSubmit }) {
+  const { cartItems } = useContext(cartContext); 
+
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -20,7 +20,15 @@ function FormCompra({ onSubmit }) {
     email: "",
   });
 
-  const [submitted, setSubmitted] = useState(false); // Nuevo estado para el mensaje de agradecimiento
+  const [submitted, setSubmitted] = useState(false);
+  const [purchaseId, setPurchaseId] = useState(""); 
+
+  
+  useEffect(() => {
+    if (submitted && purchaseId) {
+      console.log("ID de compra recibido en el useEffect: ", purchaseId);
+    }
+  }, [submitted, purchaseId]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,61 +38,62 @@ function FormCompra({ onSubmit }) {
     });
   };
 
-  // Función para validar el formulario
   const validate = () => {
     let formErrors = {};
     let isValid = true;
 
-    // Validación para el Nombre (solo letras)
     if (!/^[a-zA-Z]+$/.test(formData.nombre)) {
       formErrors.nombre = "El nombre debe contener solo letras.";
       isValid = false;
     }
 
-    // Validación para el Apellido (solo letras)
     if (!/^[a-zA-Z]+$/.test(formData.apellido)) {
       formErrors.apellido = "El apellido debe contener solo letras.";
       isValid = false;
     }
 
-    // Validación para el DNI (exactamente 8 números)
     if (!/^\d{8}$/.test(formData.dni)) {
       formErrors.dni = "El DNI debe ser un número de 8 dígitos.";
       isValid = false;
     }
 
-    // Validación para el Email (debe contener "@")
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
       formErrors.email = "El correo electrónico no es válido.";
       isValid = false;
     }
 
-    setErrors(formErrors); // Guardamos los errores
+    setErrors(formErrors);
     return isValid;
   };
 
- const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validate()) {
       console.log("Formulario validado. Enviando datos a Firebase...");
-
-      // Primero, mostramos los datos en la consola para asegurarnos que están correctos
       console.log("Datos del formulario:", formData);
-
-      // Guardamos los datos en Firebase
-      savePurchaseData(formData);
-
-      // Continuamos con el resto del código
-      onSubmit(formData); // Si es válido, enviamos los datos
-      setSubmitted(true);  // Establecemos el estado de envío como true para mostrar el mensaje
+  
+      
+      const newPurchaseId = await savePurchaseData(formData, cartItems);
+  
+      if (newPurchaseId) {
+        console.log("ID de compra recibido de Firebase: ", newPurchaseId);
+        
+        onSubmit(formData, newPurchaseId);
+      }
+  
+      setSubmitted(true);  
     }
-};
+  };
 
+  
   if (submitted) {
     return (
       <div className="alert alert-success mt-3">
-        <h2>Gracias por elegirnos, te hemos enviado un correo a tu casilla para poder completar la transacción.</h2>
+        <h2>
+        Gracias por elegirnos, te hemos enviado un correo a tu casilla para poder completar la transacción.
+        {purchaseId && ` Tu número de ID es: ${purchaseId}`}
+        </h2>
       </div>
     );
   }
@@ -147,9 +156,7 @@ function FormCompra({ onSubmit }) {
         {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
       </div>
 
-      <div className="mt-3">
-        <button type="submit" className="btn btn-primary w-100">Enviar datos</button>
-      </div>
+      <button type="submit" className="btn btn-primary">Enviar</button>
     </form>
   );
 }

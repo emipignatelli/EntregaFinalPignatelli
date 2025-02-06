@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";  
 import cartContext from "../context/cartContext";
 import FormCompra from "./FormCompra"; 
@@ -7,35 +7,42 @@ function CartContainer() {
   const { cartItems, removeItem, clearCart } = useContext(cartContext); 
   const [showForm, setShowForm] = useState(false); 
   const [formSubmitted, setFormSubmitted] = useState(false); 
+  const [purchaseId, setPurchaseId] = useState(""); 
   const navigate = useNavigate(); 
 
-  
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.count, 0);
 
   const handleFinalizePurchase = () => {
     setShowForm(true); 
   };
 
-  const handleFormSubmit = (formData) => {
+  const handleFormSubmit = (formData, newPurchaseId) => {
     console.log("Datos del formulario:", formData);
-    
-    
-    const isValid = formData.nombre && formData.apellido && formData.dni && formData.email; 
-
+    console.log("ID de compra recibido en CartContainer: ", newPurchaseId); 
+  
+   
+    const isValid = formData.nombre && formData.apellido && formData.dni && formData.email;
+  
     if (isValid) {
-      
       setFormSubmitted(true);
-      
-      
-      setTimeout(() => {
-        clearCart(); 
-        navigate("/"); 
-      }, 2000); 
+      setPurchaseId(newPurchaseId); 
     } else {
-      
       alert("Por favor, completa todos los campos correctamente.");
     }
   };
+
+  
+  useEffect(() => {
+    if (formSubmitted && purchaseId) {
+      console.log("Estado de purchaseId después de actualizar:", purchaseId);  
+      
+      
+      setTimeout(() => {
+        clearCart();
+        navigate("/");  
+      }, 5000); 
+    }
+  }, [purchaseId, formSubmitted]);  
 
   return (
     <div>
@@ -63,10 +70,12 @@ function CartContainer() {
 
       {showForm && !formSubmitted && <FormCompra onSubmit={handleFormSubmit} />}
 
-      
       {formSubmitted && (
         <div>
-          <h2>Gracias por elegirnos, te hemos enviado un correo a tu casilla para poder completar la transacción.</h2>
+          <h2>
+            Gracias por elegirnos, te hemos enviado un correo a tu casilla para poder completar la transacción.
+            {purchaseId && ` Tu número de ID es: ${purchaseId}`}
+          </h2>
         </div>
       )}
     </div>
@@ -74,3 +83,4 @@ function CartContainer() {
 }
 
 export default CartContainer;
+
