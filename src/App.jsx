@@ -1,6 +1,6 @@
 
 import './App.css';
-import CartWidget from './src/componentes/CartWidget.jsx';
+import CartWidget from './componentes/CartWidget';
 import Img from './componentes/Img';
 import Navbar from './componentes/Navbar';
 import './componentes/HeaderContenedor.css';
