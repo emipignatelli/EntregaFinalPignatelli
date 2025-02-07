@@ -2,6 +2,7 @@ import Button from "./Button";
 import './Button.css';
 import { Link } from "react-router-dom";
 
+
 function Item(props) {
   const { price, title, text, img, id, discount } = props;
   return (

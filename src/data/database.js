@@ -1,4 +1,4 @@
-import { initializeApp, getApps } from "firebase/app";  // Asegúrate de importar getApps desde firebase/app
+import { initializeApp, getApps } from "firebase/app"; 
 import { getFirestore, collection, writeBatch, doc, setDoc, query, getDocs } from "firebase/firestore";
 import products from './data'; 
 
@@ -11,11 +11,11 @@ const firebaseConfig = {
   messagingSenderId: "184853262999",
 };
 
-// Verificamos si Firebase ya está inicializado
+
 if (getApps().length === 0) {
-  initializeApp(firebaseConfig);  // Solo inicializamos si no hay aplicaciones Firebase
+  initializeApp(firebaseConfig);  
 }
-const db = getFirestore();  // Ahora utilizamos Firestore
+const db = getFirestore();  
 
 export async function loadProductsOnce() {
   const batch = writeBatch(db);

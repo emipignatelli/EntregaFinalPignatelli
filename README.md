@@ -15,7 +15,7 @@ Podes seguir los siguientes pasos para instalar el repositorio en tu pc:
 
 git clone https://github.com/emipignatelli/EntregaFinalPignatelli.git
 
-2- Dirijete a tu repositorio:
+2- Dirijete al repositorio:
 
 cd EntregaFinalPignatelli
 
@@ -27,7 +27,7 @@ npm install
 
 npm run dev
 
-Esto iniciará un servidor de desarrollo en http://localhost:3000.
+Esto iniciará un servidor de desarrollo en http://localhost:5173.
 
 
 Uso:
@@ -56,6 +56,15 @@ Contribución
 
 Si deseas contribuir con el proyecto, 
 luego de clonarlo e instalarlo en tu pc, puedes realizar una rama y aplicar los cambios que creas necesarios.
+
+Herramientas utilizadas: 
+
+Vite & React
+
+https://es.react.dev/
+
+
+https://es.vite.dev/
 
 
 Licencias
