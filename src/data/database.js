@@ -3,8 +3,8 @@ import { getFirestore, collection, writeBatch, doc, setDoc, query, getDocs } fro
 import products from './data'; 
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIRESTORE_APIKEY,
-  appId: import.meta.env.VITE_FIRESTORE_APPID,
+  apiKey: "AIzaSyDzp0rF4jOOTAX5XtZSbe3U_WyEHhTmVTQ",
+  appId: "1:184853262999:web:bcf8088119d073d7356fd2",
   authDomain: "miprimeraappreact-6bca1.firebaseapp.com",
   projectId: "miprimeraappreact-6bca1",
   storageBucket: "miprimeraappreact-6bca1.firebasestorage.app",
