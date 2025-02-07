@@ -1,3 +1,7 @@
+# Env variables
+# AGREGAR AL GIT IGNORE👇
+# .env
+
 # Logs
 logs
 *.log
@@ -22,5 +26,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-.vercel

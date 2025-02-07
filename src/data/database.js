@@ -1,24 +1,26 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";  // Asegúrate de importar getApps desde firebase/app
 import { getFirestore, collection, writeBatch, doc, setDoc, query, getDocs } from "firebase/firestore";
 import products from './data'; 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDzp0rF4jOOTAX5XtZSbe3U_WyEHhTmVTQ",
+  apiKey: import.meta.env.VITE_FIRESTORE_APIKEY,
+  appId: import.meta.env.VITE_FIRESTORE_APPID,
   authDomain: "miprimeraappreact-6bca1.firebaseapp.com",
   projectId: "miprimeraappreact-6bca1",
   storageBucket: "miprimeraappreact-6bca1.firebasestorage.app",
   messagingSenderId: "184853262999",
-  appId: "1:184853262999:web:bcf8088119d073d7356fd2",
-  measurementId: "G-BWBCDYRVXF"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// Verificamos si Firebase ya está inicializado
+if (getApps().length === 0) {
+  initializeApp(firebaseConfig);  // Solo inicializamos si no hay aplicaciones Firebase
+}
+const db = getFirestore();  // Ahora utilizamos Firestore
 
 export async function loadProductsOnce() {
   const batch = writeBatch(db);
   const productsCollection = collection(db, "products");
-  
+
   try {
     console.log("Iniciando la carga de productos...");
 
@@ -48,7 +50,6 @@ export async function savePurchaseData(formData, cartItems) {
     const newDocRef = doc(purchasesCollection); 
     console.log("Intentando guardar los datos:", formData);
 
-    
     const purchaseData = {
       ...formData,
       cart: cartItems,  
@@ -56,10 +57,8 @@ export async function savePurchaseData(formData, cartItems) {
     };
 
     await setDoc(newDocRef, purchaseData);  
-    
     console.log("Datos de la compra guardados correctamente en Firebase");
 
-   
     console.log("ID generado por Firebase:", newDocRef.id); 
     return newDocRef.id;  
   } catch (error) {
