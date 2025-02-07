@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import ViteImagemin from 'vite-plugin-imagemin'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import ViteImagemin from 'vite-plugin-imagemin';
 
 export default defineConfig({
   plugins: [
@@ -8,19 +8,21 @@ export default defineConfig({
     ViteImagemin({
       gifsicle: {
         optimizationLevel: 3,
-        interlaced: false
+        interlaced: false,
       },
       optipng: {
-        optimizationLevel: 7
+        optimizationLevel: 7,
       },
       mozjpeg: {
-        quality: 75
+        quality: 75,
       },
       pngquant: {
         quality: [0.6, 0.8],
-        speed: 4
-      }
-    })
+        speed: 4,
+      },
+    }),
   ],
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
-})
+  build: {
+    outDir: 'dist', // Aseguramos que los archivos se generen en la carpeta 'dist'
+  },
+});
