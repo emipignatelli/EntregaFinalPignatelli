@@ -6,7 +6,7 @@ import Navbar from './componentes/Navbar';
 import './componentes/HeaderContenedor.css';
 import ItemListContainer from './componentes/ItemListContainer';
 import './componentes/Navbar.css';
-import './componentes/Cartwidget.css';
+import './componentes/CartWidget.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ItemDetailContainer from './componentes/ItemDetailContainer';
 import Footer from './componentes/Footer';
