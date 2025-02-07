@@ -5,7 +5,7 @@ function Img(props) {
     return (
       <div>
         <Link to ="/">
-        <img src="./public/logo.jpg" alt={alt} width={width} height={height} />
+        <img src="./logo.jpg" alt={alt} width={width} height={height} />
       </Link>
       </div>
     
