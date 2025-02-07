@@ -45,7 +45,7 @@ function App() {
             </Navbar>
           </div>
           <div>
-            <CartWidget/>
+            <CartWidget />
           </div>
         </div>
 
