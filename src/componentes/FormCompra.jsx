@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { savePurchaseData } from "../data/database.js";
 import cartContext from "../context/cartContext"; 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function FormCompra({ onSubmit }) {
