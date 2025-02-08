@@ -1,18 +1,3 @@
-import Img1 from '../assets/Img1.png'
-import Img2 from '../assets/Img2.png'
-import Img3 from '../assets/Img3.png'
-import Img4 from '../assets/Img4.png'
-import Img5 from '../assets/Img5.png'
-import Img6 from '../assets/Img6.png'
-import Img7 from '../assets/Img7.png'
-import Img8 from '../assets/Img8.png'
-import Img9 from '../assets/Img9.png'
-import Img10 from '../assets/Img10.png'
-import Img11 from '../assets/Img11.png'
-import Img12 from '../assets/Img12.png'
-import Img13 from '../assets/Img13.png'
-import Img14 from '../assets/Img14.png'
-import Img15 from '../assets/Img15.png'
 
 const products = [
   {
@@ -20,7 +5,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 760. Negro con blanco.',
     price: 25000,
     stock: 20,
-    img: Img1,
+    img: 'https://photos.google.com/u/0/photo/AF1QipMGIU3jQakQejzsUk116b0ee88n8LtQLgw1rxz5',
     category: 'Hombre',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 15
@@ -30,7 +15,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 760. Todo negro.',
     price: 25000,
     stock: 50,
-    img: Img2,
+    img: 'https://photos.google.com/u/0/photo/AF1QipM7k79-bH-2rRZQcSna6Ln2GokTpBLCGRhdeWVO',
     category: 'Hombre',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 25
@@ -40,7 +25,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 760. Negro con caramelo.',
     price: 28000,
     stock: 30,
-    img: Img3,
+    img: 'https://photos.google.com/u/0/photo/AF1QipPMeYNYouwFvCATlE9qskraUYMIZHYeX8X6Cza8',
     category: 'Hombre',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 5
@@ -50,7 +35,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 380. Negro con caramelo.',
     price: 25000,
     stock: 15,
-    img: Img4,
+    img: 'https://photos.google.com/u/0/photo/AF1QipNzPwAFJpWKMcZI3qg5ePFFyezGrNCmG5Rf93tA',
     category: 'Hombre',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 10,
@@ -61,7 +46,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 380. Negro con blanco.',
     price: 28000,
     stock: 100,
-    img: Img5,
+    img: 'https://photos.google.com/u/0/photo/AF1QipN3ZrNcsK0cDA3DOkiqZIIatZBSTIE5TqGE48yv',
     category: 'Hombre',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 30
@@ -71,7 +56,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 201 Knu. Plataforma negra con blanco.',
     price: 23000,
     stock: 25,
-    img: Img6,
+    img: 'https://photos.google.com/u/0/photo/AF1QipMez4dUXmc_NorX6XIo9DCjkkRDJX9txZpnXTcP',
     category: 'Mujer',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 10
@@ -81,7 +66,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 201 Knu. Plataforma cuadrille.',
     price: 24000,
     stock: 40,
-    img: Img7,
+    img: 'https://photos.google.com/u/0/photo/AF1QipMzDXRMUq5jsB5mwja3oSJyVY3DB_ddljitsPvk7',
     category: 'Mujer',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 5
@@ -91,7 +76,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 201 Knu. Plataforma fucsia.',
     price: 22000,
     stock: 60,
-    img: Img8,
+    img: 'https://photos.google.com/u/0/photo/AF1QipMrKvpHU14vgwxiZL6i_m5Mcr272eQN2KFtDNHY8',
     category: 'Mujer',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 20
@@ -101,7 +86,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 201 Knu. Plataforma rosa.',
     price: 22000,
     stock: 20,
-    img: Img9,
+    img: 'https://photos.google.com/u/0/photo/AF1QipOBKrze57XX1gO3nggThw1Z6ta8jpV0bda839wd',
     category: 'Mujer',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 10
@@ -111,7 +96,7 @@ const products = [
     title: 'Zapatillas All Crash. Artículo 200. Bota clásica.',
     price: 25000,
     stock: 15,
-    img: Img10,
+    img: 'https://photos.google.com/u/0/photo/AF1QipOBKrze57XX1gO3nggThw1Z6ta8jpV0bda839wd',
     category: 'Mujer',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 30
@@ -121,7 +106,7 @@ const products = [
     title: 'Zapatillas para chicos All Crash. Artículo 200. Cuadrillé.',
     price: 20000,
     stock: 30,
-    img: Img11,
+    img: 'https://photos.google.com/u/0/photo/AF1QipPf6kUu5id5t-ZoNMENFjrOhNI7IuudtdupIHuB',
     category: 'Chicos',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 5
@@ -131,7 +116,7 @@ const products = [
     title: 'Zapatillas para chicos All Crash. Artículo 200. Rosa',
     price: 21000,
     stock: 20,
-    img: Img12,
+    img: 'https://photos.google.com/u/0/photo/AF1QipNo0UQyKvdt06wqmMLwFJ11UPd5gIIaB-W2LLs5',
     category: 'Chicos',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 15
@@ -141,7 +126,7 @@ const products = [
     title: 'Zapatillas para chicos All Crash. Artículo 250. Negro y blanco.',
     price: 23000,
     stock: 10,
-    img: Img13,
+    img: 'https://photos.google.com/u/0/photo/AF1QipMxBlROG5YyzGxxpJyMgxb7kgWu88uE9gEcrrHw3',
     category: 'Chicos',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 15
@@ -151,7 +136,7 @@ const products = [
     title: 'Zapatillas para chicos All Crash. Artículo 380. Gris y blanco.',
     price: 22000,
     stock: 40,
-    img: Img14,
+    img: 'https://photos.google.com/u/0/photo/AF1QipPeZbu2TO3BMN2ngXPvt2FzyuI798TbDh7mLhcd',
     category: 'Chicos',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 5
@@ -161,7 +146,7 @@ const products = [
     title: 'Zapatillas para chicos All Crash. Artículo 380. Negro con caramelo.',
     price: 22000,
     stock: 100,
-    img: Img15,
+    img: 'https://photos.google.com/u/0/photo/AF1QipPE9HV9V-YbdWL6yqZZsHakVNqTHKsqxQXKsZJo',
     category: 'Chicos',
     description: 'Excelentes zapatillas en calidad y buen precio',
     discount: 25
